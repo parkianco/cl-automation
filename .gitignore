@@ -1,0 +1,30 @@
+# FASL files
+*.fasl
+*.fas
+*.lib
+*.o
+*.a
+
+# SBCL
+*.core
+
+# ASDF cache
+~/.cache/common-lisp/
+
+# Editor backups
+*~
+\#*\#
+.\#*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+/build/
+/dist/

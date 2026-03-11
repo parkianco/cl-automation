@@ -1,0 +1,13 @@
+cl-automation
+Copyright (c) 2024-2026 CLPIC Development Team
+
+This software was extracted from the CLPIC project
+(Common Lisp P2P Intellectual Property Chain).
+
+Original source files:
+- src/automation/registry/package.lisp
+- src/automation/registry/registry.lisp
+- src/automation/keeper/package.lisp
+
+The extraction refactored and reorganized the code for standalone use
+while preserving the core automation functionality.
