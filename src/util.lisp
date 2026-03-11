@@ -1,8 +1,41 @@
+;;;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+;;;; SPDX-License-Identifier: BSD-3-Clause
+
 ;;;; util.lisp - Utility functions for cl-automation
 ;;;;
 ;;;; SPDX-License-Identifier: MIT
 
 (in-package #:cl-automation)
+
+;;; ============================================================================
+;;; Base Error Conditions
+;;; ============================================================================
+
+(define-condition automation-error (error)
+  ((code :initarg :code
+         :reader automation-error-code
+         :type keyword
+         :initform :automation-error)
+   (message :initarg :message
+            :reader automation-error-message
+            :type string
+            :initform ""))
+  (:report (lambda (c s)
+             (format s "Automation error (~A): ~A"
+                     (automation-error-code c)
+                     (automation-error-message c))))
+  (:documentation "Base condition for all automation errors."))
+
+(define-condition invalid-configuration (automation-error)
+  ((field :initarg :field
+          :reader invalid-configuration-field
+          :initform nil)
+   (reason :initarg :reason
+           :reader invalid-configuration-reason
+           :initform ""))
+  (:default-initargs :code :invalid-configuration
+                     :message "Invalid configuration")
+  (:documentation "Error for invalid configuration values."))
 
 ;;; ============================================================================
 ;;; Thread Safety
