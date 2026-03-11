@@ -1,11 +1,11 @@
 ;;;; cl-automation.asd - Smart Contract Automation Triggers
 ;;;;
 ;;;; SPDX-License-Identifier: MIT
-;;;; Copyright (c) 2024-2026 CLPIC Development Team
+;;;; Copyright (c) 2024-2026 Parkian Company LLC
 
 (asdf:defsystem "cl-automation"
   :description "Standalone smart contract automation triggers for Common Lisp"
-  :author "CLPIC Development Team"
+  :author "Parkian Company LLC"
   :license "MIT"
   :version "1.0.0"
   :depends-on ()
