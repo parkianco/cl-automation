@@ -30,4 +30,6 @@
     :components
     ((:file "test-automation"))))
   :perform (test-op (o c)
-             (symbol-call :cl-automation.test :run-tests)))
+             (let ((result (symbol-call :cl-automation.test :run-tests)))
+               (unless result
+                 (error "Tests failed")))))
