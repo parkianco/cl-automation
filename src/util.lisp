@@ -37,6 +37,33 @@
                      :message "Invalid configuration")
   (:documentation "Error for invalid configuration values."))
 
+(define-condition insufficient-funds (automation-error)
+  ((required :initarg :required
+             :reader insufficient-funds-required
+             :initform 0)
+   (available :initarg :available
+              :reader insufficient-funds-available
+              :initform 0))
+  (:default-initargs :code :insufficient-funds
+                     :message "Insufficient funds for upkeep"))
+
+(define-condition upkeep-not-found (automation-error)
+  ((upkeep-id :initarg :upkeep-id
+              :reader upkeep-not-found-id
+              :initform nil))
+  (:default-initargs :code :upkeep-not-found
+                     :message "Upkeep not found"))
+
+(define-condition unauthorized-access (automation-error)
+  ((action :initarg :action
+           :reader unauthorized-access-action
+           :initform nil)
+   (address :initarg :address
+            :reader unauthorized-access-address
+            :initform nil))
+  (:default-initargs :code :unauthorized-access
+                     :message "Unauthorized access"))
+
 ;;; ============================================================================
 ;;; Thread Safety
 ;;; ============================================================================
