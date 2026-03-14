@@ -1,3 +1,6 @@
+;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+;; SPDX-License-Identifier: BSD-3-Clause
+
 ;;;; cl-automation.asd - Smart Contract Automation Triggers
 ;;;;
 ;;;; SPDX-License-Identifier: MIT
@@ -7,7 +10,7 @@
   :description "Standalone smart contract automation triggers for Common Lisp"
   :author "Parkian Company LLC"
   :license "MIT"
-  :version "1.0.0"
+  :version "0.1.0"
   :depends-on ()
   :serial t
   :components
@@ -19,7 +22,7 @@
      (:file "trigger")
      (:file "scheduler")
      (:file "executor"))))
-  :in-order-to ((test-op (test-op "cl-automation/test"))))
+  :in-order-to ((asdf:test-op (test-op "cl-automation/test"))))
 
 (asdf:defsystem "cl-automation/test"
   :description "Tests for cl-automation"
@@ -29,7 +32,7 @@
   ((:module "test"
     :components
     ((:file "test-automation"))))
-  :perform (test-op (o c)
-             (let ((result (symbol-call :cl-automation.test :run-tests)))
+  :perform (asdf:test-op (o c)
+             (let ((result (uiop:symbol-call :cl-automation.test :run-tests)))
                (unless result
                  (error "Tests failed")))))
