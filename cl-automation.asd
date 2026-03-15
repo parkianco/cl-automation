@@ -16,12 +16,10 @@
   :components
   ((:file "package")
    (:module "src"
-    :serial t
-    :components
-    ((:file "util")
-     (:file "trigger")
-     (:file "scheduler")
-     (:file "executor"))))
+                :components ((:file "package")
+                             (:file "conditions" :depends-on ("package"))
+                             (:file "types" :depends-on ("package"))
+                             (:file "cl-automation" :depends-on ("package" "conditions" "types"))))))
   :in-order-to ((asdf:test-op (test-op "cl-automation/test"))))
 
 (asdf:defsystem "cl-automation/test"
