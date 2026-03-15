@@ -24,7 +24,9 @@
   ;; Error Conditions
   ;; =========================================================================
   (:export
-   #:automation-error
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check#:automation-error
    #:automation-error-code
    #:automation-error-message
    #:upkeep-not-found
@@ -50,7 +52,9 @@
   ;; Trigger Types
   ;; =========================================================================
   (:export
-   ;; Base trigger
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check;; Base trigger
    #:trigger
    #:make-trigger
    #:trigger-p
@@ -104,7 +108,9 @@
   ;; Trigger Operations
   ;; =========================================================================
   (:export
-   #:create-trigger
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check#:create-trigger
    #:update-trigger
    #:delete-trigger
    #:enable-trigger
@@ -123,7 +129,9 @@
   ;; Upkeep Structure
   ;; =========================================================================
   (:export
-   #:upkeep
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check#:upkeep
    #:make-upkeep
    #:upkeep-p
    #:upkeep-id
@@ -149,7 +157,9 @@
   ;; Scheduler Structure
   ;; =========================================================================
   (:export
-   #:scheduler
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check#:scheduler
    #:make-scheduler
    #:scheduler-p
    #:scheduler-id
@@ -173,7 +183,9 @@
   ;; Executor Structure
   ;; =========================================================================
   (:export
-   #:executor
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check#:executor
    #:make-executor
    #:executor-p
    #:executor-id
@@ -215,7 +227,9 @@
   ;; Registry (Integration)
   ;; =========================================================================
   (:export
-   ;; Upkeep registration
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check;; Upkeep registration
    #:register-upkeep
    #:register-time-upkeep
    #:register-event-upkeep
@@ -248,11 +262,16 @@
   ;; Global State
   ;; =========================================================================
   (:export
-   #:*default-scheduler*
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check#:*default-scheduler*
    #:*default-executor*
    #:initialize-automation
    #:shutdown-automation))
 
 (defpackage #:cl-automation.test
   (:use #:cl #:cl-automation)
-  (:export #:run-tests))
+  (:export
+   #:with-automation-timing
+   #:automation-batch-process
+   #:automation-health-check#:run-tests))

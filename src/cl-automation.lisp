@@ -182,3 +182,38 @@
 (defun initialize-automation (&rest args) "Auto-generated substantive API for initialize-automation" (declare (ignore args)) t)
 (defun shutdown-automation (&rest args) "Auto-generated substantive API for shutdown-automation" (declare (ignore args)) t)
 (defun run-tests (&rest args) "Auto-generated substantive API for run-tests" (declare (ignore args)) t)
+
+
+;;; ============================================================================
+;;; Standard Toolkit for cl-automation
+;;; ============================================================================
+
+(defmacro with-automation-timing (&body body)
+  "Executes BODY and logs the execution time specific to cl-automation."
+  (let ((start (gensym))
+        (end (gensym)))
+    `(let ((,start (get-internal-real-time)))
+       (multiple-value-prog1
+           (progn ,@body)
+         (let ((,end (get-internal-real-time)))
+           (format t "~&[cl-automation] Execution time: ~A ms~%"
+                   (/ (* (- ,end ,start) 1000.0) internal-time-units-per-second)))))))
+
+(defun automation-batch-process (items processor-fn)
+  "Applies PROCESSOR-FN to each item in ITEMS, handling errors resiliently.
+Returns (values processed-results error-alist)."
+  (let ((results nil)
+        (errors nil))
+    (dolist (item items)
+      (handler-case
+          (push (funcall processor-fn item) results)
+        (error (e)
+          (push (cons item e) errors))))
+    (values (nreverse results) (nreverse errors))))
+
+(defun automation-health-check ()
+  "Performs a basic health check for the cl-automation module."
+  (let ((ctx (initialize-automation)))
+    (if (validate-automation ctx)
+        :healthy
+        :degraded)))
