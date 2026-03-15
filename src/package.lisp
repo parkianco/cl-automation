@@ -24,7 +24,11 @@
   ;; Error Conditions
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check#:automation-error
    #:automation-error-code
@@ -52,7 +56,11 @@
   ;; Trigger Types
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check;; Base trigger
    #:trigger
@@ -108,7 +116,11 @@
   ;; Trigger Operations
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check#:create-trigger
    #:update-trigger
@@ -129,7 +141,11 @@
   ;; Upkeep Structure
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check#:upkeep
    #:make-upkeep
@@ -157,7 +173,11 @@
   ;; Scheduler Structure
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check#:scheduler
    #:make-scheduler
@@ -183,7 +203,11 @@
   ;; Executor Structure
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check#:executor
    #:make-executor
@@ -227,7 +251,11 @@
   ;; Registry (Integration)
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check;; Upkeep registration
    #:register-upkeep
@@ -262,7 +290,11 @@
   ;; Global State
   ;; =========================================================================
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check#:*default-scheduler*
    #:*default-executor*
@@ -272,6 +304,10 @@
 (defpackage #:cl-automation.test
   (:use #:cl #:cl-automation)
   (:export
-   #:with-automation-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-automation-timing
    #:automation-batch-process
    #:automation-health-check#:run-tests))
