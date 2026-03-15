@@ -8,8 +8,8 @@
 
 (asdf:defsystem "cl-automation"
   :description "Standalone smart contract automation triggers for Common Lisp"
-  :author "Parkian Company LLC"
-  :license "MIT"
+  :author "Park Ian Co"
+  :license "Apache-2.0"
   :version "0.1.0"
   :depends-on ()
   :serial t
